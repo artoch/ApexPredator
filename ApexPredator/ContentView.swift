@@ -8,17 +8,27 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    let apController = ApexController()
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        
+        NavigationView {
+            List {
+                ForEach(apController.apexPredators) { data in
+                    NavigationLink(destination: Text(data.name)) {
+                        DinoItem(data: data)
+                    }
+                }
+            }
+            .navigationTitle("Apex Predator")
+        .background(.black)
         }
-        .padding()
+        
     }
 }
 
 #Preview {
     ContentView()
+        .preferredColorScheme(.dark)
 }
