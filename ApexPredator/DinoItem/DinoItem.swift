@@ -25,12 +25,13 @@ struct DinoItem: View {
                         .bold()
                         .font(.title3)
 
-                    Text(data.type)
+                Text(data.type.capitalized)
                         .foregroundStyle(.white)
                         .bold()
-                        .padding(6)
-                        .background(.brown.opacity(0.33))
-                        .clipShape(.rect(cornerRadius: 12.0))
+                        .padding(.vertical , 6)
+                        .padding(.horizontal, 13)
+                        .background(data.typeOverlay().opacity(0.33))
+                        .clipShape(.rect(cornerRadius: 20.0))
           
                     
                 }
